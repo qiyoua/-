@@ -66,7 +66,7 @@ def main(page):
 
 
 
-components.html('<h1><center>当当网热门数据数据爬取</center></h1>')
+components.html('<h1><center>当当网热门书籍数据爬取</center></h1>')
 
 # """- 看看要爬取的网页是什么样子的吧"""
 
