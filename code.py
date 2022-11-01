@@ -100,13 +100,8 @@ with col3:
             info = '开始爬取...'
             st.info(info)
         
-        for i in range(1,page+1):
-            data = pd.concat([main(i) for i in range(1,i+1)])
-        if not os.path.exists('./results'):
-            os.mkdir('./results')
-        else:
-            data.to_excel('./results/data.xlsx',index=False)
-            st.success('爬取成功!')
+        data = pd.concat([main(i) for i in range(1,page+1)])
+        st.success('爬取成功!')
     else:
         st.warning('你还没有开始爬取呢!')
 if len(data)>0:
