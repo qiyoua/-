@@ -68,12 +68,12 @@ def main(page):
 
 components.html('<h1><center>当当网热门数据数据爬取</center></h1>')
 
-"""- 看看要爬取的网页是什么样子的吧"""
+# """- 看看要爬取的网页是什么样子的吧"""
 
-""""""
-checkbox = st.checkbox('显示网页')
-if checkbox:
-    components.iframe('http://bing.com',height=1000,width=1200,scrolling=True)
+# """"""
+# checkbox = st.checkbox('显示网页')
+# if checkbox:
+#     components.iframe('http://bang.dangdang.com/books/fivestars/01.00.00.00.00.00-recent30-0-0-1-1',height=1000,width=1200,scrolling=True)
 
 """"""
 """- 参数展示"""
