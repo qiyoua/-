@@ -169,7 +169,6 @@ def get_onepage_info(soup):
     for all_price_tag in all_price_tags:
         price.append(all_price_tag.find('span',class_='price_n').string)
     
-    
     return pd.DataFrame({"rank":rank,
               "title":title,
              'author':author,
