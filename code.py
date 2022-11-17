@@ -3,11 +3,12 @@ import streamlit as st
 import requests
 import pandas as pd
 import bs4
-import os
 import re
 import streamlit.components.v1 as components
 from st_aggrid import AgGrid
 import base64
+from openpyxl import Workbook
+from io import BytesIO
 
 st.set_page_config(page_title='爬取当当网的热门书籍',page_icon='book',layout='wide')
 
@@ -116,7 +117,15 @@ else:
         )
 
 if len(data)>0:
-    st.download_button('下载数据集',data.to_csv().encode('utf-8'),mime='text/csv')
+    workbook = Workbook()
+    with data as tmp:
+            workbook.save(tmp.name)
+            data_download = BytesIO(tmp.read())
+
+            st.download_button("下载数据集",
+            data=data_download,
+            mime='xlsx',
+            file_name="当当网热门数据数据集.xlsx")
     
 
 components.html('<h1><center>爬虫源码展示</center></h1>')
