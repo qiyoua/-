@@ -8,7 +8,9 @@ import streamlit.components.v1 as components
 from st_aggrid import AgGrid
 import base64
 from openpyxl import Workbook
+import openpyxl
 from io import BytesIO
+from tempfile import NamedTemporaryFile
 
 st.set_page_config(page_title='爬取当当网的热门书籍',page_icon='book',layout='wide')
 
@@ -117,8 +119,9 @@ else:
         )
 
 if len(data)>0:
-    workbook = Workbook()
-    with data as tmp:
+    data.to_excel('./results/data.xlsx',index=False)
+    workbook = openpyxl.load_workbook('./results/data.xlsx')
+    with NamedTemporaryFile() as tmp:
             workbook.save(tmp.name)
             data_download = BytesIO(tmp.read())
 
